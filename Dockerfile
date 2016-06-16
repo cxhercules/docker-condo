@@ -99,8 +99,9 @@ RUN bash /rbenv-setup.sh $RUBY_VERSION
 RUN rm -fv /rbenv-setup.sh
 
 
-#COPY scripts/init.sh / 
-#RUN chmod +x /init.sh
-#RUN chown builder:builder /init.sh
+COPY scripts/init.sh / 
+RUN chmod +x /init.sh
+RUN chown builder:builder /init.sh
 
-USER builder
+#USER builder
+ENTRYPOINT ["/init.sh"]
