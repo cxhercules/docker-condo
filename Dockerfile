@@ -48,6 +48,7 @@ RUN apt-get update -qqy \
     libyaml-dev \
     zlib1g-dev \
     libxslt-dev \
+    tofrodos \
   && rm -rf /var/lib/apt/lists/* \
   && sed -i 's/securerandom\.source=file:\/dev\/random/securerandom\.source=file:\/dev\/urandom/' ./usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.security
 
@@ -99,9 +100,11 @@ RUN bash /rbenv-setup.sh $RUBY_VERSION
 RUN rm -fv /rbenv-setup.sh
 
 
-COPY scripts/init.sh / 
-RUN chmod +x /init.sh
-RUN chown builder:builder /init.sh
+ADD scripts/init.sh /usr/local/bin/init.sh 
+RUN chmod +x /usr/local/bin/init.sh 
+RUN chown builder:builder /usr/local/bin/init.sh
+USER builder
+ENTRYPOINT  ["/usr/local/bin/init.sh"]
 
-#USER builder
-ENTRYPOINT ["/init.sh"]
+
+
