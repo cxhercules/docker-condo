@@ -80,14 +80,15 @@ ENV MAVEN_HOME /usr/share/maven
 # See https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
 #====================================
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash \
-    && apt-get install -y nodejs
-
+   && apt-get install -y nodejs
+RUN  npm install npm -g
 #====================================
 # BOWER, GRUNT, GULP
 #====================================
 
-RUN npm install --global --no-interactive --grunt-cli@0.1.2 bower@1.7.9 gulp@3.9.1
+RUN npm install --global --no-interactive --grunt-cli@0.1.2 gulp@3.9.1
 
+RUN npm install --global bower@1.7.9  --config.interactive=false
 #====================================
 # install Rbenv,Ruby 
 #====================================
