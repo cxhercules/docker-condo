@@ -99,6 +99,7 @@ COPY scripts/rbenv-setup.sh /
 RUN bash /rbenv-setup.sh $RUBY_VERSION
 RUN rm -fv /rbenv-setup.sh
 
+RUN sudo chmod -R 777 /usr/local/rbenv
 
 ADD scripts/init.sh /usr/local/bin/init.sh 
 RUN chmod +x /usr/local/bin/init.sh 
