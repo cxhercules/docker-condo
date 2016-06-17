@@ -91,7 +91,6 @@ RUN npm install --global --no-interactive --grunt-cli@0.1.2 bower@1.7.9 gulp@3.9
 #====================================
 # install Rbenv,Ruby 
 #====================================
-USER builder
 
 ARG RUBY_VERSION
 ENV RUBY_VERSION=${RUBY_VERSION:-2.2.3}
@@ -104,8 +103,7 @@ RUN sudo chmod -R 777 /usr/local/rbenv
 ADD scripts/init.sh /usr/local/bin/init.sh 
 RUN chmod +x /usr/local/bin/init.sh 
 RUN chown builder:builder /usr/local/bin/init.sh
-
-ENTRYPOINT  ["/usr/local/bin/init.sh"]
+USER builder
 
 
 
