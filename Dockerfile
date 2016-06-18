@@ -86,9 +86,9 @@ RUN  npm install npm -g
 # BOWER, GRUNT, GULP
 #====================================
 
-RUN npm install --global --no-interactive --grunt-cli@0.1.2 gulp@3.9.1
+RUN npm install --global --no-interactive --grunt-cli@0.1.2 gulp@3.9.0
 
-RUN npm install --global bower@1.7.9  --config.interactive=false
+RUN npm install --global bower@1.4.1  --config.interactive=false
 #====================================
 # install Rbenv,Ruby 
 #====================================
