@@ -106,7 +106,7 @@ RUN chmod +x /usr/local/bin/init.sh
 RUN chown -R builder /usr/local
 RUN chown -R builder /usr/bin
 RUN chmod -R 755 /usr/bin/
-RUN chmod -R 755 /tmp
+RUN chmod -R 777 /tmp
 RUN chown builder:builder /usr/local/bin/init.sh
 USER builder
 
