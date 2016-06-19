@@ -103,8 +103,8 @@ RUN sudo chmod -R 777 /usr/local/rbenv
 
 ADD scripts/init.sh /usr/local/bin/init.sh 
 RUN chmod +x /usr/local/bin/init.sh 
-sudo chown -R builder /usr/local
-sudo chown -R builder /usr/bin
+RUN chown -R builder /usr/local
+RUN chown -R builder /usr/bin
 RUN chmod -R 755 /usr/bin/
 RUN chmod -R 755 /tmp
 RUN chown builder:builder /usr/local/bin/init.sh
