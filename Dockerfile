@@ -81,7 +81,7 @@ ENV MAVEN_HOME /usr/share/maven
 #====================================
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash \
    && apt-get install -y nodejs
-RUN  npm install npm -g
+RUN  npm install npm --global
 #====================================
 # BOWER, GRUNT, GULP
 #====================================
@@ -104,6 +104,7 @@ RUN sudo chmod -R 777 /usr/local/rbenv
 ADD scripts/init.sh /usr/local/bin/init.sh 
 RUN chmod +x /usr/local/bin/init.sh 
 RUN chmod -R 755 /usr/bin/
+RUN chmod -R 755 /tmp
 RUN chown builder:builder /usr/local/bin/init.sh
 USER builder
 
